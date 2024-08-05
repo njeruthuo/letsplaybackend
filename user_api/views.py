@@ -1,4 +1,5 @@
 # views.py
+from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login
 import json
 from django.views.decorators.csrf import csrf_exempt
@@ -48,8 +49,17 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return JsonResponse({'message': 'Login successful', 'user_id': user.id})
+            return JsonResponse({'id': user.id, 'username': user.username, 'email': user.email, 'first_name': user.first_name, 'last_name': user.last_name})
         else:
             return JsonResponse({'message': 'Invalid credentials'}, status=401)
+
+    return JsonResponse({'message': 'Invalid request method'}, status=405)
+
+
+@csrf_exempt
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return JsonResponse({'message': 'Logout successful'})
 
     return JsonResponse({'message': 'Invalid request method'}, status=405)
