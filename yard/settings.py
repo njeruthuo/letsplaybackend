@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%z!h8dsx_7yb$q2zwg#7ptp1v=zwhb7ws_$sz4s(&o66fg&qpj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["letsplaybackend-1.onrender.com"]
+ALLOWED_HOSTS = ["letsplaybackend-2.onrender.com"]
 
 
 INSTALLED_APPS = [
