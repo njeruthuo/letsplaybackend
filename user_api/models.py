@@ -7,10 +7,10 @@ class UserProfile(models.Model):
         MALE = 'M', 'Male'
         FEMALE = 'F', 'Female'
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None,related_name='profile')
     dob = models.DateField()
     location = models.CharField(max_length=1200)
-    gender = models.CharField(max_length=6, choices=Gender.choices)
+    gender = models.CharField(max_length=6, choices=Gender.choices, blank=True)
     bio = models.TextField()
     phone = models.BigIntegerField(unique=True)
 
