@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,12 +79,12 @@ WSGI_APPLICATION = 'yard.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -142,3 +144,8 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:5173',  # Replace with your React app's URL
 ]
+
+
+DATABASES = {
+    "default": dj_database_url.parse("postgresql://lets_play_wyo0_user:KnCdMqUl8Jq6EhMvE9jXF4I9l6zaApPG@dpg-cqqtkirqf0us73926vf0-a.oregon-postgres.render.com/lets_play_wyo0")
+}
