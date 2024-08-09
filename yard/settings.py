@@ -146,6 +146,9 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
+import dj_database_url
+
 DATABASES = {
     "default": dj_database_url.parse("postgresql://lets_play_wyo0_user:KnCdMqUl8Jq6EhMvE9jXF4I9l6zaApPG@dpg-cqqtkirqf0us73926vf0-a.oregon-postgres.render.com/lets_play_wyo0")
 }
+
